@@ -13,10 +13,10 @@ export const animeApi = createApi({
     reducerPath: 'animeApi',
     baseQuery: fetchBaseQuery({ baseUrl }),
     endpoints: (builder) => ({
-        getAnimeList: builder.query({
-            query: () => createRequest('/anime'),
+        getTrendingAnimeList: builder.query({
+            query: () => createRequest('/trending/anime?limit=20'),
         }),
     })
 });
 
-export const { useGetAnimeListQuery } = animeApi;
+export const { useGetTrendingAnimeListQuery } = animeApi;

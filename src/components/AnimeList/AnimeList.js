@@ -1,12 +1,12 @@
 import React from 'react';
-import { useGetAnimeListQuery } from '../../services/animeApi';
+import { useGetTrendingAnimeListQuery } from '../../services/animeApi';
 import AnimeCard from '../AnimeCard/AnimeCard';
 
 import './AnimeList.css';
 
 const AnimeList = () => {
 
-    const { data, isFetching } = useGetAnimeListQuery();
+    const { data, isFetching } = useGetTrendingAnimeListQuery();
     console.log(data?.data);
 
 
@@ -16,7 +16,7 @@ const AnimeList = () => {
   return (
     <div className='container'>
         {data?.data.map((anime) => (
-            <AnimeCard anime={anime} />
+            <AnimeCard anime={anime} key={anime.id} />
         ))}
     </div>
   )
